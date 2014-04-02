@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style>
+         body {
+          margin: 0;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 0.91em;
+          line-height: 20px;
+          color: #333333;
+          background-color: #ffffff;
+        }
+    </style>
+    <link href="css/bootstrap-only-message.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-dialog.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-dialog.js"></script>
+    <script type="text/javascript">
+        //tipo de mensajes ->  default, info, primary, sucess, warning, danger
+        function message(texto, titulo, tipo) {
+            BootstrapDialog.show({
+                title: titulo,
+                message: texto,
+                cssClass: 'type-' + tipo
+            });
+            return false;
+        }
+
+        $(document).ready(function () {
+            $("#mostrar").click(function () {
+                message("Mensaje personalizado", "Mensajes", "sucess");
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="mostrar" value="Mostrar mensaje"/>
+</body>
+</html>
