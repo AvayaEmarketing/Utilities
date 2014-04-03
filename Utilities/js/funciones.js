@@ -172,6 +172,29 @@ function ajaxFileUpload(id) {
     return false;
 }
 
+//Funcion que permite identificar la versión que se está utilizando de IExplorer
+
+function detectIE() {
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf('MSIE ');
+    var trident = ua.indexOf('Trident/');
+
+    if (msie > 0) {
+        // Si es IE 10 o más viejo => retorna el número de versión
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    }
+
+    if (trident > 0) {
+        // Si es IE 11 o más nuevo => retorna el número de versión
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+    }
+
+    // otro browser
+    return false;
+}
+
+
 
 
 
